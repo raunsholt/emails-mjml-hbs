@@ -1,0 +1,32 @@
+<mjml>
+
+  {{> head }}
+
+  <mj-body>
+    <mj-container background-color="#F3F7F8" style="margin-top: 10px;">
+
+      {{> banner }}
+
+      <mj-section background-color="#ffffff">
+
+        {{> textcontainer1 }}
+
+        {{> button }}
+
+        {{> textcontainer2 }}
+
+      </mj-section>
+
+      {{> signature }}
+
+      <mj-section background-color="#ffffff">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-color="#E0E0E0" />
+        </mj-column>
+      </mj-section>
+
+      {{> footer }}
+
+    </mj-container>
+  </mj-body>
+</mjml>

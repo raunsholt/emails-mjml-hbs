@@ -1,0 +1,21 @@
+<mj-section background-color="#ffffff">
+        <mj-column width="100%">
+          <mj-text padding="0 25px">
+            <p style="line-height: 9px; padding-bottom: 10px;padding-top:10px;font-family: Roboto;">
+              Med venlig hilsen
+            </p>
+            <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+              {{concept}}
+            </p>
+            <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+              kontakt@folkelaan.dk
+            </p>
+            <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+              +45 71 70 10 60
+            </p>
+            <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+              Reg. nr.: 7134 Konto nr.: 0001042621
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>

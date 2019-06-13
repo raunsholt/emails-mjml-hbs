@@ -1,0 +1,5 @@
+<mj-section background-color="#510404" padding="20px 0 10px">
+        <mj-column>
+          <mj-image width="200px" align="left" href="https://www.folkelån.dk" src="https://minifinans.dk/wp-content/uploads/2019/02/folkelaan_logo.png" />
+        </mj-column>
+      </mj-section>
