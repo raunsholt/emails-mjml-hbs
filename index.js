@@ -2,6 +2,50 @@ const Handlebars = require('handlebars');
 const mjml2html = require('mjml');
 const fs = require("fs");
 
+let currDate = new Date();
+let fullYear = currDate.getFullYear();
+
+let globalData = {
+            company: "Lendomatic",
+            phone: "+45 71 70 10 60",
+            bankaccount: "7134 - 0001042621",
+            bankaccountText: "Reg. nr.: 7134 Konto nr.: 0001042621",
+            year: fullYear
+};
+
+let conceptData = {
+    "concepts":
+    [
+        {            
+            "concept": "folkelaanet",
+            "conceptName": "Folkelånet",
+            "email": "kontakt@folkelaanet.dk",
+            "url": "https://folkelaanet.dk/",
+            "loginUrl": "https://app.folkelaanet.dk/login",
+            "banner": "https://minifinans.dk/wp-content/uploads/2019/02/folkelaan_logo.png",
+        },        
+        {
+            "concept": "kassekreditten",
+            "conceptName": "Kassekreditten",
+            "email": "kontakt@kassekreditten.dk",
+            "url": "https://kassekreditten.dk/",
+            "loginUrl": "https://app.kassekreditten.dk/login",
+            "banner": "https://kassekreditten.dk/wp-content/uploads/optimised-1.svg",
+        }
+    ],
+};
+
+// HELPERS START
+function registerHelpers() {
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+}
+
+registerHelpers();
+// HELPERS END
+
+// PARTIALS START
 function registerPartials() {
     let partialsDir = __dirname + '/partials';
 
@@ -18,7 +62,11 @@ function registerPartials() {
     });
 }
 
-function buildEmails() {
+registerPartials();
+// PARTIALS END
+
+// BUILD START
+function buildEmails(data) {
     let emailsDir = __dirname + '/emails';
 
     let filenames = fs.readdirSync(emailsDir);
@@ -33,47 +81,32 @@ function buildEmails() {
 
         let template = Handlebars.compile(source);
 
-        let data = {
-            title: "Big title",
-            dpd: name,
-            message: "Hello wooorld",
-            concept: "Folkelånet",
-        };
+        Object.assign(data, globalData);
 
         let result = template(data);
 
         let output = mjml2html(result);
 
-        fs.writeFile(`./build/mjml/${name}.mjml`, result, function (err) {
+        fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}-${name}.mjml`, result, function (err) {
             if (err) {
                 return console.log(err);
             }
         });
 
-        fs.writeFile(`./build/html/${name}.html`, output.html, function (err) {
-            if (err) {
-                return console.log(err);
-            }
-        });
+        // fs.writeFile(`./build/html/${conceptData.concepts[item].concept}${name}.html`, output.html, function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
+        // });
 
     });
 }
+// BUILD END
 
-registerPartials();
-buildEmails();
+// RUN START (change to forEach?)
 
-// FOR INDEX
+for(var item in conceptData.concepts) {
+    buildEmails(conceptData.concepts[item]);
+  }
 
-// function logFiles() {
-//     const testFolder = './build/html/';
-
-//     fs.readdir(testFolder, (err, files) => {
-//         files.forEach(file => {
-//             console.log(file);
-//         });
-//     });
-// }
-
-// logFiles();
-
-// ---
+// RUN END

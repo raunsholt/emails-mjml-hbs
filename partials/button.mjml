@@ -1,6 +1,0 @@
-<mj-column width="100%" background-color="#eee" padding="20px">
-          <mj-text>
-            <p style="text-align: center;font-size:16px;font-family: Roboto;">Betal minimumsbetalingen via kort på din profil.</p>
-          </mj-text>
-          <mj-button align="center" background-color="#18cfab" color="#fff" border-radius="30px" href="https://app.folkelån.dk/login" padding-top="0" font-size="15px">Log ind</mj-button>
-        </mj-column>
