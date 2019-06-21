@@ -1,0 +1,96 @@
+<mjml>
+
+  <mj-head>
+    <mj-title>Tilbagebetaling i dag</mj-title>
+
+    <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,400"></mj-font>
+    <mj-attributes>
+      <mj-all font-family="Roboto, Helvetica, sans-serif"></mj-all>
+      <mj-text font-weight="300" font-size="15px" color="#45474e" line-height="24px"></mj-text>
+      <mj-section padding="0px"></mj-section>
+    </mj-attributes>
+
+      <mj-attributes>
+        <mj-class name="mainColor" background-color="#ffffff" />
+        <mj-class name="buttonColor" background-color="#1acfaa" />
+      </mj-attributes>
+  </mj-head>
+
+  <mj-body background-color="#F3F7F8">
+
+    <mj-section mj-class="mainColor" padding="20px 0 10px">
+          <mj-column>
+            <mj-image width="200px" align="left" href="https://kassekreditten.dk/" src="https://kassekreditten.dk/wp-content/uploads/optimised-1.svg"></mj-image>
+          </mj-column>
+        </mj-section>
+    <mj-section background-color="#ffffff">
+      <mj-column width="100%">
+        <mj-text background-color="#eee">
+          <p>Kære %{realname}%</p>
+          <p>
+            Dine renter forfalder til betaling i dag.
+          </p>
+          <p style="padding-top:10px;">Kreditnummer: <span style="font-weight: 400;color:#000;padding-left:5px;"> %{credit_id}%</span></p>
+          <p>Minimumsbetaling: <span style="font-weight: 400;color:#000;padding-left:5px;"> %{current_debt}% kr.</span></p>
+          <p style="padding-bottom:10px;">Samlet Gæld: <span style="font-weight: 400;color:#000;padding-left:5px;"> %{debt}% kr.</span></p>
+        </mj-text>
+      </mj-column>
+
+      <mj-column width="100%" background-color="#eee" padding="20px">
+        <mj-text>
+          <p style="text-align: center;font-size:16px;">Betal minimumsbetalingen via kort på din profil.</p>
+        </mj-text>
+        <mj-button align="center" mj-class="buttonColor" color="#fff" border-radius="30px" href="https://app.kassekreditten.dk/login" padding-top="0" font-size="15px">Log ind</mj-button>
+      </mj-column>
+
+      <mj-column width="100%">
+        <mj-text>
+          <h4>Har du ikke mulighed for at betale med kort?</h4>
+          <p>Du kan også overføre det skyldige beløb til vores bankkonto: <span style="font-weight: 400;">Reg. nr.: 7134 Konto nr.: 0001042621</span>. Venligst marker din indbetaling med CPR nummer.
+          </p>
+          <h4>Hvad er rentebetaling?</h4>
+          <p>Din rentebetaling dækker for den foregående måneds renter.
+          </p>
+          <h4>Delvis betaling? </h4>
+          <p>Alt hvad du overfører mere end din rentebetaling, vil automatisk blive fratrukket på din kredit. Dette gøre du ved at lave en almindelig bankoverførsel til os. Hvis du betaler et højere beløb end rentebetalingen, falder din rentebetaling til
+            din næste betalingsdato. </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+        <mj-section background-color="#ffffff">
+          <mj-column width="100%">
+            <mj-text padding="0 25px">
+              <p style="line-height: 9px; padding-bottom: 10px;padding-top:10px;font-family: Roboto;">
+                Med venlig hilsen
+              </p>
+              <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+                Kassekreditten
+              </p>
+              <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+                kontakt@kassekreditten.dk
+              </p>
+              <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+                +45 71 70 10 60
+              </p>
+              <p style="line-height: 9px; padding: 2px 0;font-size:14px;font-family: Roboto;">
+                Reg. nr.: 7134 Konto nr.: 0001042621
+              </p>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+    <mj-section background-color="#ffffff">
+      <mj-column width="100%">
+        <mj-divider border-width="1px" border-color="#E0E0E0"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff">
+          <mj-column width="100%">
+            <mj-text>
+              <p style="font-size: 12px;color:#868686;">Copyright © 2019 Lendomatic ApS, Alle rettigheder forbeholdes.</p>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+  </mj-body>
+</mjml>

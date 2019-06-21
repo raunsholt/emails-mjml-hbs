@@ -1,0 +1,5 @@
+<mj-section mj-class="mainColor" padding="20px 0 10px">
+      <mj-column>
+        <mj-image width="200px" align="left" href="{{url}}" src="{{banner}}"></mj-image>
+      </mj-column>
+    </mj-section>

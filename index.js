@@ -87,17 +87,17 @@ function buildEmails(data) {
 
         let output = mjml2html(result);
 
-        fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}-${name}.mjml`, result, function (err) {
+        fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.mjml`, result, function (err) {
             if (err) {
                 return console.log(err);
             }
         });
 
-        // fs.writeFile(`./build/html/${conceptData.concepts[item].concept}${name}.html`, output.html, function (err) {
-        //     if (err) {
-        //         return console.log(err);
-        //     }
-        // });
+        fs.writeFile(`./build/html/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.html`, output.html, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        });
 
     });
 }
