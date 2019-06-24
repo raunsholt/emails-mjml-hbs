@@ -9,11 +9,13 @@
       <mj-text font-weight="300" font-size="15px" color="#45474e" line-height="24px"></mj-text>
       <mj-section padding="0px"></mj-section>
     </mj-attributes>
-      <mj-attributes>
+    <mj-attributes>
+    
         <mj-class name="mainColor" background-color="#510404" />
         <mj-class name="buttonColor" background-color="#FD000A" />
-      </mj-attributes>
-
+    
+      
+    </mj-attributes>
   </mj-head>
 
   <mj-body background-color="#F3F7F8">

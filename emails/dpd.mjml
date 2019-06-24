@@ -5,13 +5,7 @@
 
     {{> styling-global}}
 
-    {{#ifEquals concept "folkelaanet"}}
-      {{> styling-folkelaanet}}
-    {{/ifEquals}}
-
-    {{#ifEquals concept "kassekreditten"}}
-      {{> styling-kassekreditten}}
-    {{/ifEquals}}
+    {{> styling-concepts}}
 
   </mj-head>
 

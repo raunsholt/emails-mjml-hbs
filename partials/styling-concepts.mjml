@@ -1,0 +1,13 @@
+<mj-attributes>
+
+  {{#ifEquals concept "folkelaanet"}}
+    <mj-class name="mainColor" background-color="#510404" />
+    <mj-class name="buttonColor" background-color="#FD000A" />
+  {{/ifEquals}}
+
+  {{#ifEquals concept "kassekreditten"}}
+    <mj-class name="mainColor" background-color="#ffffff" />
+    <mj-class name="buttonColor" background-color="#1acfaa" />
+  {{/ifEquals}}
+  
+</mj-attributes>
