@@ -65,6 +65,43 @@ function registerPartials() {
 registerPartials();
 // PARTIALS END
 
+// CREATE FOLDERS START
+
+function createFolders() {
+
+    fs.mkdir("build", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+    fs.mkdir("build/html", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+    fs.mkdir("build/mjml", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+    fs.mkdir(`build/mjml/${conceptData.concepts[item].concept}`, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+    fs.mkdir(`build/html/${conceptData.concepts[item].concept}`, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+}
+// CREATE FOLDERS END
+
 // BUILD START
 function buildEmails(data) {
     let emailsDir = __dirname + '/emails';
@@ -106,6 +143,7 @@ function buildEmails(data) {
 // RUN START (change to forEach?)
 
 for(var item in conceptData.concepts) {
+    createFolders();
     buildEmails(conceptData.concepts[item]);
   }
 
