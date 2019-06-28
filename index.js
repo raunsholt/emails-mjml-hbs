@@ -81,17 +81,17 @@ function createFolders() {
         }
     });
 
-    fs.mkdir("build/mjml", function (err) {
-        if (err) {
-            return console.log(err);
-        }
-    });
+    // fs.mkdir("build/mjml", function (err) {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    // });
 
-    fs.mkdir(`build/mjml/${conceptData.concepts[item].concept}`, function (err) {
-        if (err) {
-            return console.log(err);
-        }
-    });
+    // fs.mkdir(`build/mjml/${conceptData.concepts[item].concept}`, function (err) {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    // });
 
     fs.mkdir(`build/html/${conceptData.concepts[item].concept}`, function (err) {
         if (err) {
@@ -124,11 +124,11 @@ function buildEmails(data) {
 
         let output = mjml2html(result);
 
-        fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.mjml`, result, function (err) {
-            if (err) {
-                return console.log(err);
-            }
-        });
+        // fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.mjml`, result, function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
+        // });
 
         fs.writeFile(`./build/html/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.html`, output.html, function (err) {
             if (err) {
