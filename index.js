@@ -1,10 +1,14 @@
 const Handlebars = require('handlebars');
 const mjml2html = require('mjml');
 const fs = require("fs");
+const conceptData = require('./conceptdata.json');
 
+// Get current year
 let currDate = new Date();
 let fullYear = currDate.getFullYear();
 
+// DATA OBJECTS
+// Data that apply to all concepts
 let globalData = {
             company: "Lendomatic",
             phone: "+45 71 70 10 60",
@@ -13,39 +17,16 @@ let globalData = {
             year: fullYear
 };
 
-let conceptData = {
-    "concepts":
-    [
-        {            
-            "concept": "folkelaanet",
-            "conceptName": "Folkelånet",
-            "email": "kontakt@folkelaanet.dk",
-            "url": "https://folkelaanet.dk/",
-            "loginUrl": "https://app.folkelaanet.dk/login",
-            "banner": "https://minifinans.dk/wp-content/uploads/2019/02/folkelaan_logo.png",
-        },        
-        {
-            "concept": "kassekreditten",
-            "conceptName": "Kassekreditten",
-            "email": "kontakt@kassekreditten.dk",
-            "url": "https://kassekreditten.dk/",
-            "loginUrl": "https://app.kassekreditten.dk/login",
-            "banner": "https://kassekreditten.dk/wp-content/uploads/optimised-1.svg",
-        }
-    ],
-};
-
-// HELPERS START
+// HELPERS 
+// Used to add styling to each concept in "styling-concepts.mjml"
 function registerHelpers() {
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 }
 
-registerHelpers();
-// HELPERS END
-
-// PARTIALS START
+// PARTIALS 
+// Register every .mjml file in the folder "partials" 
 function registerPartials() {
     let partialsDir = __dirname + '/partials';
 
@@ -62,12 +43,9 @@ function registerPartials() {
     });
 }
 
-registerPartials();
-// PARTIALS END
-
-// CREATE FOLDERS START
-
-function createFolders() {
+// CREATE FOLDERS
+// Create main folders if doesn't exist
+function createMainFolders() {
 
     fs.mkdir("build", function (err) {
         if (err) {
@@ -81,28 +59,30 @@ function createFolders() {
         }
     });
 
-    // fs.mkdir("build/mjml", function (err) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    // });
+    fs.mkdir("build/mjml", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+}
 
-    // fs.mkdir(`build/mjml/${conceptData.concepts[item].concept}`, function (err) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    // });
+// Create folders for each concept if doesn't exist
+function createConceptFolders(concept) {
 
-    fs.mkdir(`build/html/${conceptData.concepts[item].concept}`, function (err) {
+    fs.mkdir(`build/mjml/${concept}`, function (err) {
         if (err) {
             return console.log(err);
         }
     });
 
+    fs.mkdir(`build/html/${concept}`, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
 }
-// CREATE FOLDERS END
 
-// BUILD START
+// BUILD 
 function buildEmails(data) {
     let emailsDir = __dirname + '/emails';
 
@@ -124,11 +104,11 @@ function buildEmails(data) {
 
         let output = mjml2html(result);
 
-        // fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.mjml`, result, function (err) {
-        //     if (err) {
-        //         return console.log(err);
-        //     }
-        // });
+        fs.writeFile(`./build/mjml/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.mjml`, result, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        });
 
         fs.writeFile(`./build/html/${conceptData.concepts[item].concept}/${name}-${conceptData.concepts[item].concept}.html`, output.html, function (err) {
             if (err) {
@@ -138,13 +118,18 @@ function buildEmails(data) {
 
     });
 }
-// BUILD END
 
-// RUN START (change to forEach?)
+// RUN 
+registerHelpers();
+registerPartials();
+createMainFolders();
 
 for(var item in conceptData.concepts) {
-    createFolders();
-    buildEmails(conceptData.concepts[item]);
+    createConceptFolders(conceptData.concepts[item].concept)
+    // console.log(conceptData.concepts[item].concept)
   }
 
-// RUN END
+for(var item in conceptData.concepts) {
+    buildEmails(conceptData.concepts[item]);
+    // console.log(conceptData.concepts[item].concept)
+  }

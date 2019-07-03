@@ -1,0 +1,20 @@
+{
+    "concepts": [
+        {
+            "concept": "folkelaanet",
+            "conceptName": "Folkelånet",
+            "email": "kontakt@folkelaanet.dk",
+            "url": "https://folkelaanet.dk/",
+            "loginUrl": "https://app.folkelaanet.dk/login",
+            "banner": "https://minifinans.dk/wp-content/uploads/2019/02/folkelaan_logo.png"
+        },
+        {
+            "concept": "kassekreditten",
+            "conceptName": "Kassekreditten",
+            "email": "kontakt@kassekreditten.dk",
+            "url": "https://kassekreditten.dk/",
+            "loginUrl": "https://app.kassekreditten.dk/login",
+            "banner": "https://kassekreditten.dk/wp-content/uploads/optimised-1.svg"
+        }
+    ]
+}
